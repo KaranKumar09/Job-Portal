@@ -11,7 +11,6 @@ import { useSelector } from "react-redux";
 const Profile = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { user } = useSelector((store) => store.auth);
-
   return (
     <div>
       <Navbar />

@@ -38,7 +38,7 @@ const JobCard = ({ job, className }) => {
       <div className="flex items-center  gap-1 sm:gap-2">
         <div>
           <img
-            src="/OpportuneX_logo.png"
+            src="/JobWize_logo.png"
             alt="company_logo"
             className="h-[4rem] rounded-md border border-gray-300"
           />

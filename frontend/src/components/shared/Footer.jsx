@@ -9,9 +9,9 @@ const Footer = () => {
       <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-center md:text-left">
         <div className="mb-4 md:mb-0">
           <h2 className="text-2xl font-bold">
-            Jobwize<span className="text-[#F83002]">W</span>
+            Job<span className="text-[#6A38C2]">Wize</span>
           </h2>
-          <p className="text-sm">© {year} Jobwize. All rights reserved.</p>
+          <p className="text-sm">© {year} JobWize. All rights reserved.</p>
           <p className="text-sm text-gray-700">
             Developed by{" "}
             <a
@@ -25,7 +25,7 @@ const Footer = () => {
 
         <div className="flex space-x-6">
           <a
-            href="https://github.com/kraarush/OpportuneX"
+            href="https://github.com/KaranKumar09"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-gray-500"
@@ -33,7 +33,7 @@ const Footer = () => {
             <FaGithub size={24} />
           </a>
           <a
-            href="https://twitter.com/AarushKr_"
+            href="https://x.com/imkaran_15"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-gray-500"
@@ -41,7 +41,7 @@ const Footer = () => {
             <FaTwitter size={24} />
           </a>
           <a
-            href="https://www.linkedin.com/in/aarush-kr/"
+            href="https://www.linkedin.com/in/karankumar12218376/"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-gray-500"

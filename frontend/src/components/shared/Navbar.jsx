@@ -37,7 +37,7 @@ const Navbar = () => {
 
         <div onClick={() => {navigate("/")}} className="cursor-pointer">
           <h1 className="md:text-4xl sm:text-3xl text-2xl font-bold">
-            Jobwize<span className="text-[#F83002]">W</span>
+            Job<span className="text-[#6A38C2]">Wize</span>
           </h1>
         </div>
 
@@ -166,7 +166,7 @@ const Navbar = () => {
           }
         >
           <h1 className="text-3xl font-bold w-full m-4">
-            Opportune<span className="text-[#F83002]">X</span>
+            JobWize
           </h1>
 
           <div className="flex flex-col gap-4 items-center p-4">
