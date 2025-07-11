@@ -1,16 +1,15 @@
-
-
 import express from 'express';
-
-import authenticateToken from '../middleware/isAuthenticated.js';
+import authMiddleware from '../middlewares/authmiddleware.js';
+import authorizeRole from '../middlewares/authorizeRole.js';
 import { applyJob, getApplicants, getAppliedJobs, updateStatus } from '../controllers/application.controller.js';
-
 
 const router = express.Router();
 
-router.route("/apply/:id").get(authenticateToken,applyJob);
-router.route("/get").get(authenticateToken,getAppliedJobs);
-router.route("/:id/applicants").get(authenticateToken, getApplicants);
-router.route("/status/:id/update").post(authenticateToken,updateStatus);
+
+router.route('/apply/:id').get(authMiddleware, authorizeRole("student"), applyJob);
+router.route('/get').get(authMiddleware, authorizeRole("student"), getAppliedJobs);
+router.route('/applicants/:id').get(authMiddleware, authorizeRole("recruiter"), getApplicants);
+router.route('/status/update/:id').post(authMiddleware, authorizeRole("recruiter"), updateStatus);
+
 
 export default router;

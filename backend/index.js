@@ -1,48 +1,38 @@
-import express from 'express';
-import cookieParser from 'cookie-parser';
+import express from 'express'
+import { configDotenv } from 'dotenv';
 import cors from 'cors';
-import { time } from 'console';
-import dotenv from 'dotenv';
+import cookieParser from 'cookie-parser';
 import connectDB from './utils/db.js';
-import userRoute from './routes/user.route.js';
-import companyRoute from './routes/company.route.js';
-import jobRoute from './routes/job.route.js'; // Add this line
-import applicationRoute from './routes/application.route.js'; // Add this line
+import userRoutes from './routes/user.route.js';
+import companyRoutes from './routes/company.route.js';
+import jobRoutes from './routes/job.route.js';
+import applicationRoutes from './routes/application.route.js';
 
-dotenv.config();
 
+configDotenv();
 const app = express();
+const PORT = process.env.PORT || 3000;
 
-app.get('/', (req, res) => {
-  return res.status(200).json({
-    message: 'Welcome to the API!',
-    time: new Date().toISOString(),
-    success: true,
-  }); 
-});
-
-//middleware
+// middlewares
 app.use(express.json());
-
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-const corsOptions = {
-  origin: 'http://localhost:5121', // Adjust this to your frontend URL
-  credentials: true, // Allow cookies to be sent
-};
+// cors setup
+const corsOption = {
+    origin: ['http://localhost:5173'],
+    credentials: true
+}
+app.use(cors(corsOption));
 
-app.use(cors(corsOptions));
+// api's 
+app.use('/api/v1/user', userRoutes);
+app.use('/api/v1/company', companyRoutes);
+app.use('/api/v1/job', jobRoutes);
+app.use('/api/v1/application', applicationRoutes);
 
-const PORT = process.env. PORT || 5001;
 
-//apis
-app.use("/api/user", userRoute);
-app.use("/api/company", companyRoute);
-app.use("/api/job", jobRoute); 
-app.use("/api/application", applicationRoute); // Add this line
-
-app.listen(PORT, () => {
-    connectDB();
-  console.log(`Server is running on port ${PORT}`);
+app.listen(PORT, async () => {
+    await connectDB();
+    console.log(`Server is live on port: ${PORT}`);
 });
