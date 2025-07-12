@@ -163,7 +163,7 @@ const Signup = () => {
               </Label>
               <Input
                 type="text"
-                placeholder="Aarush kumar"
+                placeholder="karan kumar"
                 name="fullname"
                 onChange={changeEventHandler}
                 value={formData.fullname}

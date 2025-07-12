@@ -20,7 +20,7 @@ app.use(cookieParser());
 
 // cors setup
 const corsOption = {
-    origin: ['http://localhost:5173'],
+    origin: ['http://localhost:5173','https://jobwize.netlify.app'],
     credentials: true
 }
 app.use(cors(corsOption));
